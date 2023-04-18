@@ -1,0 +1,237 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body{
+    /* background-color: #c84cee; */
+    position: relative;
+    /* color: blueviolet; */
+    color: #fff;
+    font-family: "微软雅黑";
+    background: #1e293b -webkit-linear-gradient(top, #1e293b, #1e293b);
+}
+ul{
+    list-style-type: none;
+}
+a{
+    text-decoration: none;
+    color: #fff;
+}
+a:hover{
+    color: #fdf751;
+}
+::-webkit-scrollbar{
+    width: 5px;
+    background-color: #31232300;
+}
+/* 内容 */
+.stars{
+    position: relative;
+    top: 12px;
+    bottom: 0;
+    right: 0px;
+    left: 14px;
+}
+.box{
+    width: 1500px;
+    height: 1370px;
+    margin: 0 auto;
+    /*border: 1px solid skyblue;*/
+}
+.navigation{
+    width: 1396px;
+    line-height: 80px;
+    height: 80px;
+    font-size: 36px;
+    margin-left: 52px;
+    filter: brightness(100%);
+}
+.option{
+    width: 1396px;
+    height: 80px;
+    float: left;
+    position: relative;
+}
+.option a{
+    margin-right: 30px;
+}
+.option input[type=text]{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 80px;
+    margin: auto 0;
+    width: 364px;
+    height: 34px;
+    font-size: 24px;
+}
+.option input[type=submit]{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0px;
+    margin: auto 0;
+    width: 80px;
+    height: 38px;
+    font-size: 23px;
+}
+.option input[type=submit]:active{
+    background-color: black;
+    color: white;
+}
+.rbj p{
+    font-family: "黑体";
+    font-size: 20px;
+    margin: 6px;
+    color: #ccc;
+}
+.rbj ul li{
+    font-size: 16px;
+    float: left;
+    margin:6px 6px 0 6px;
+}
+.xqy{
+    width: 1396px;
+    height: 1142px;
+    margin-left: 52px;
+    margin-top: 10px;
+    /*border: 1px solid rgb(231, 16, 16);*/
+}
+.link{
+    color: rgb(126, 126, 126);
+    font-size: 16px;
+    height: 44px;
+    line-height: 44px;
+    margin-left: 24px;
+}
+/* 详情页 */
+#details{
+    width: 1396px;
+    height: 408px;
+    /*border: 1px solid rgb(5, 233, 62);*/
+}
+.left{
+    width: 310px;
+    height: 408px;
+    float: left;
+    /*border: 1px solid rgb(18, 88, 36);*/
+}
+.right{
+    width: 1080px;
+    height: 408px;
+    float: left;
+    /*border: 1px solid rgb(27, 23, 233);*/
+}
+.left img{
+    margin: 10px 20px 10px 20px;
+}
+.right h2{
+    font-size: 32px;
+    line-height: 40px;
+}
+.right p{
+    font-size: 18px;
+    margin: 2px 0px;
+}
+.introduction{
+    width: 1052px;
+    height: 26px;
+    overflow: auto;
+}
+.right a{
+    color: white;
+}
+.right a:hover{
+    color: #fdf751;
+}
+.introduction span{
+    width: 40px;
+    height: 30px;
+    font-size: 18px;
+    position: absolute;
+    left: 1620px;
+}
+.playNow{
+    display: inline-block;
+    font-size: 24px;
+    width: 150px;
+    height: 44px;
+    background-color: #fdf751;
+    border-radius: 10px;
+    line-height: 44px;
+    text-align: center;
+    margin-top: 8px;
+}
+a .playNow{
+    color: black;
+}
+.like{
+    color: #fdf751;
+    font-size: 20px;
+    line-height: 24px;
+    margin: 6px 20px;
+}
+.positive{
+    width: 1396px;
+    height: 668px;
+    /*border: 1px solid rgb(5, 233, 62);*/
+    margin-top: 20px;
+}
+.videoPush{
+    width: 176px;
+    height: 312px;
+    text-align: center;
+    float: left;
+    margin: 2px 0 0 20px;
+    /*border: 1px solid rgb(5, 233, 62);*/
+    position: relative;
+}
+.videoPush a .images{
+    width: 176px;
+    height: 260px;
+    border-radius: 4px 0 0 0;
+}
+
+.TopImg{
+    position: absolute;
+    top: 98.5px;
+    left: 55px;
+    opacity: 0.8;
+}
+.BeOver{
+    font-size: 14px;
+    position: absolute;
+    bottom: 64px;
+    right: 12px;
+}
+.Score{
+    font-size: 14px;
+    padding: 2px 8px;
+    border-radius: 0 0 0 8px;
+    background-color: #F90;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+/* 版权 */
+.copyright{
+    width: 1396px;
+    height: 60px;
+    margin-top: 50px;
+    margin-left: 52px;
+}
+.copyright span{
+    margin: 0px 5px 0 5px;
+}
+.copyright a{
+    color:#CCC;
+}
+.copyright a:hover{
+    color:#fdf751;
+}
+.copyright p{
+    font-size:18px;
+    line-height:25px;
+    text-align:center;
+    color:#CCC;
+}

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.example.dao.AnimeDao">
+    <sql id="selectAnime">
+        select a_id,a_title,a_score,a_total_number,a_type,a_update_time,a_image_url,a_description from anime
+    </sql>
+
+    <select id="selectAll" resultType="Anime">
+        <include refid="selectAnime" /> limit #{beginNum},14
+    </select>
+    <select id="selectById" resultType="Anime">
+        <include refid="selectAnime" /> where a_id = #{a_id}
+    </select>
+    <select id="selectByType" resultType="Anime">
+        <include refid="selectAnime" /> where a_type like "%" #{a_type} "%"
+    </select>
+    <select id="selectByScore" resultType="Anime">
+        <include refid="selectAnime" /> order by a_score desc
+    </select>
+    <select id="countById" resultType="java.lang.Integer">
+        select count(a_id) from anime;
+    </select>
+</mapper>

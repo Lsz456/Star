@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.example.dao.FilmDao">
+    <!--定义代码片段-->
+    <sql id="selectFilm">
+        select f_id,f_title,f_type,f_area,f_score,f_year,f_star,f_director,f_update_time,f_Introduction,f_images,f_url from film
+    </sql>
+
+    <select id="selectAll" resultType="Film">
+        <include refid="selectFilm" /> limit #{beginNum},14
+    </select>
+    <select id="selectById" resultType="Film">
+        <include refid="selectFilm" /> where f_id = #{f_id}
+    </select>
+    <select id="selectByType" resultType="Film">
+        <include refid="selectFilm" /> where f_type like % #{f_type} %
+    </select>
+    <select id="selectByScore" resultType="Film">
+        <include refid="selectFilm" /> order by f_score desc
+    </select>
+    <select id="countById" resultType="java.lang.Integer">
+        select count(f_id) from film
+    </select>
+
+</mapper>

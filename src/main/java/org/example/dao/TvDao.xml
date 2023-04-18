@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.example.dao.TvDao">
+    <sql id="selectTv">
+        select t_id,t_title,t_heat,t_total_number,t_type,t_update_time,t_star,t_image_url,t_description from tv
+    </sql>
+    <!--使用insert，update，delete，select标签写sql-->
+    <select id="selectAll" resultType="Tv">
+        <include refid="selectTv" /> order by t_heat desc limit #{beginNum},14
+    </select>
+    <select id="selectById" resultType="Tv">
+        <include refid="selectTv" /> where t_id = #{t_id}
+    </select>
+    <select id="selectByType" resultType="Tv">
+        <include refid="selectTv" /> where t_type like "%" #{t_type} "%"
+    </select>
+    <select id="selectByScore" resultType="Tv">
+        <include refid="selectTv" /> order by t_heat desc
+    </select>
+    <select id="countById" resultType="java.lang.Integer">
+        select count(t_id) from tv
+    </select>
+</mapper>

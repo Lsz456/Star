@@ -61,7 +61,7 @@
                     <p>年代：<a href=""><%=film.getF_year()%></a></p>
                     <p>上次更新：<span><%=film.getF_update_time()%></span></p>
                     <div class="introduction">
-                        <p>简介：<%=film.getF_Introduction()%></p><span style="top: <%=film.getF_director().length() > 1 ? 308 : 282%>px;"><a id="vanish" style="cursor: pointer">展开</a></span>
+                        <p>简介：<%=film.getF_Introduction()%></p><span style="top: <%=film.getF_director().length() > 1 ? 304 : 279%>px;"><a id="vanish" style="cursor: pointer">展开</a></span>
                         <script type="text/javascript">
                             $("#vanish").click(function() {
                                 if ($("#vanish").text() == "展开"){

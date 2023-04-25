@@ -134,7 +134,7 @@ a:hover{
     margin: 2px 0px;
 }
 .introduction{
-    width: 1052px;
+    width: 1024px;
     height: 26px;
     overflow: auto;
 }
@@ -149,7 +149,7 @@ a:hover{
     height: 30px;
     font-size: 18px;
     position: absolute;
-    left: 1620px;
+    left: 1696px;
 }
 .playNow{
     display: inline-block;

@@ -127,10 +127,10 @@
                 <div class="videoPush">
                     <span class="BeOver"><%=tv1.getT_total_number()%></span>
 <%--                    <span class="Score"><%=tv1.getT_heat()%></span>--%>
-                    <a id="img<%=number%>" href="cartoon/video.com?name=<%=tv1.getT_id()%>">
+                    <a id="img<%=number%>" href="teleplay/video.com?name=<%=tv1.getT_id()%>">
                         <img id="images<%=number%>" class="images" src="<%=tv1.getT_image_url()%>" >
                     </a>
-                    <a href="cartoon/video.com?name=<%=tv1.getT_id()%>"><p><%=tv1.getT_title()%></p></a>
+                    <a href="teleplay/video.com?name=<%=tv1.getT_id()%>"><p><%=tv1.getT_title()%></p></a>
                 </div>
                 <%
                         number++;

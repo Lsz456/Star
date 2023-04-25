@@ -14,12 +14,14 @@ import java.util.List;
 @RequestMapping("/film")
 public class FilmController {
 
+    //声明FilmService对象，并同过@Resource自动转配对象
     @Resource
     private FilmService filmService;
 
+    //声明ModelAndView对象
     private ModelAndView mv = new ModelAndView();
 
-    //点击电影效果
+    //电影页面
     @RequestMapping("/check.com")
     public ModelAndView clickFilm(){
 
@@ -40,7 +42,7 @@ public class FilmController {
         mv.addObject("previousPage",previousPage);
         mv.addObject("dataPage",dataPage);
 
-        //指定跳转视图
+        //跳转至Film.jsp视图
         mv.setViewName("Film");
 
         return mv;

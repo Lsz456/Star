@@ -65,7 +65,7 @@
             <!-- 查询开始 -->
             <div class="find">
                 <span>已选择：最新-电视剧</span>
-                <p><a id="vanish" href="#">展开</a></p>
+                <p style="cursor: pointer"><a id="vanish">展开</a></p>
                 <script type="text/javascript">
                     $("#vanish").click(function() {
                         if ($(".vanish").hasClass("vanish")){

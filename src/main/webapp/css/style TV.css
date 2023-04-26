@@ -1,6 +1,7 @@
 *{
     margin: 0px;
     padding: 0px;
+    scrollbar-width: thin;
 }
 body{
     /* background-color: #c84cee; */

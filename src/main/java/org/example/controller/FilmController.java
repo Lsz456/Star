@@ -86,7 +86,7 @@ public class FilmController {
         return mv;
     }
 
-    //点击视频进行跳转
+    //点击进行跳转
     @RequestMapping(value = "/video.com")
     public ModelAndView clickVideo(Long name){
 

@@ -61,11 +61,11 @@
                 </ul>
             </div>
             <h2><%=film.getF_title()%></h2>
-            <p><%=film.getF_year()%> / <%=film.getF_area() == null ? film.getF_type() : film.getF_area()%><span id="vanish" style="cursor: pointer">展开 ﹀</span></p>
+            <p><%=film.getF_year()%> / <%=film.getF_area().equals("null") ? film.getF_type() : film.getF_area()%><span id="vanish" style="cursor: pointer">展开 ﹀</span></p>
             <div class="introduce">
                 <p>主演：<%=film.getF_star()%></p>
                 <p><%=film.getF_director().length() > 1 ? "导演：" + film.getF_director() : ""%></p>
-                <p>类型：<%=film.getF_area() == null ? film.getF_type() : film.getF_area()%></p>
+                <p>类型：<%=film.getF_area().equals("null") ? film.getF_type() : film.getF_area()%></p>
                 <p>简介：<%=film.getF_Introduction()%>
                     <script type="text/javascript">
                         let number = null;

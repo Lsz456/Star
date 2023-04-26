@@ -139,6 +139,7 @@ a:hover{
     width: 1024px;
     height: 26px;
     overflow: auto;
+    scrollbar-width: none;
 }
 .right a{
     color: white;

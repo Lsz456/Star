@@ -55,7 +55,7 @@
                 <!-- 右边开始 -->
                 <div class="right">
                     <h2><%=film.getF_title()%></h2>
-                    <p>类型：<a href=""><%=film.getF_area() == null ? film.getF_type() : film.getF_area()%></a></p>
+                    <p>类型：<a href=""><%=film.getF_area().equals("null") ? film.getF_type() : film.getF_area()%></a></p>
                     <p><%=film.getF_director().length() > 1 ? "导演：" + film.getF_director() : ""%></p>
                     <p>主演：<%=film.getF_star()%></p>
                     <p>年代：<a href=""><%=film.getF_year()%></a></p>

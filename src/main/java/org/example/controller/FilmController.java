@@ -112,10 +112,12 @@ public class FilmController {
     //点击播放按钮
     @RequestMapping(value = "/play.com")
     public ModelAndView clickPlay(Long name){
+        //播放接口
+//        String url = "https://jx.jsonplayer.com/player/?url=";
+        String url = "https://jx.aidouer.net/?url=";
 
         //根据id获取内容
         Film film = filmService.findById(name);
-        String url = "https://jx.jsonplayer.com/player/?url=";
 
         mv.addObject("url",url);
         mv.addObject("film",film);

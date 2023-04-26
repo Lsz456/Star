@@ -109,7 +109,8 @@ public class AnimeController {
     //点击播放按钮
     @RequestMapping("/play.com")
     public ModelAndView clickPlay(Long play_Id, Integer numInt){
-        String url = "https://jx.jsonplayer.com/player/?url=";
+//        String url = "https://jx.jsonplayer.com/player/?url=";
+        String url = "https://jx.aidouer.net/?url=";
 
         //获取anime_p里面的播放链接
         Anime_Pending ap = animeService.findMovieUrls(play_Id, numInt);

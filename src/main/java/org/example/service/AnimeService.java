@@ -20,8 +20,14 @@ public interface AnimeService {
     Long countByA_PId(Long id);
 
     List<Anime> findByType(String type);
+    List<Anime> findByTypePage(String type, Integer page);
+
+    List<Anime> findByYear(String year);
+    List<Anime> findByYearPage(String year, Integer page);
 
     List<Anime>  findByScore();
 
     Integer countById();
+
+    List<Anime> findLike(String content);
 }

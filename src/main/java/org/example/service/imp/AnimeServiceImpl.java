@@ -67,6 +67,21 @@ public class AnimeServiceImpl implements AnimeService {
     }
 
     @Override
+    public List<Anime> findByTypePage(String type, Integer page) {
+        return dao.selectByTypePage(type, page);
+    }
+
+    @Override
+    public List<Anime> findByYear(String year) {
+        return dao.selectByYear(year);
+    }
+
+    @Override
+    public List<Anime> findByYearPage(String year, Integer page) {
+        return dao.selectByYearPage(year, page);
+    }
+
+    @Override
     public List<Anime> findByScore() {
         return dao.selectByScore();
     }
@@ -88,5 +103,10 @@ public class AnimeServiceImpl implements AnimeService {
         }
 
         return number;
+    }
+
+    @Override
+    public List<Anime> findLike(String content) {
+        return dao.selectLike(content);
     }
 }

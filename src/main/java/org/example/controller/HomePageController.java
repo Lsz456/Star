@@ -50,4 +50,29 @@ public class HomePageController {
         //返回mv到前端
         return mv;
     }
+
+    //根据用户输入的内容模糊查询
+    @RequestMapping("/find.com")
+    public ModelAndView findFuzzyQuery(String content){
+        //根据内容来进行模糊查询
+        List<Anime> animeList = animeService.findLike(content);
+        List<Film> filmList = filmService.findLike(content);
+        List<Tv> tvList = tvService.findLike(content);
+
+        Integer number = animeList.size() + filmList.size() + tvList.size();
+
+        //把查询到的内容添加到mv里面
+        mv.addObject("animeList",animeList);
+        mv.addObject("filmList",filmList);
+        mv.addObject("tvList",tvList);
+
+        //跳转到FuzzyQuery.jsp视图
+        mv.setViewName("FuzzyQuery");
+
+        //返回mv到前端
+        return mv;
+
+
+    }
+
 }

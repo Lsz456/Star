@@ -17,10 +17,22 @@
     <select id="selectByType" resultType="Anime">
         <include refid="selectAnime" /> where a_type like "%" #{a_type} "%"
     </select>
+    <select id="selectByTypePage" resultType="Anime">
+        <include refid="selectAnime" /> where a_type like "%" #{a_type} "%" limit #{number},14
+    </select>
+    <select id="selectByYear" resultType="Anime">
+        <include refid="selectAnime" /> where a_update_time like #{a_year} "%"
+    </select>
+    <select id="selectByYearPage" resultType="Anime">
+        <include refid="selectAnime" /> where a_update_time like #{a_year} "%" limit #{number},14
+    </select>
     <select id="selectByScore" resultType="Anime">
         <include refid="selectAnime" /> order by a_score desc
     </select>
     <select id="countById" resultType="java.lang.Integer">
         select count(a_id) from anime;
+    </select>
+    <select id="selectLike" resultType="Anime">
+        <include refid="selectAnime" /> where a_title like "%" #{content} "%"
     </select>
 </mapper>

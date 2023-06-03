@@ -17,10 +17,22 @@
     <select id="selectByType" resultType="Tv">
         <include refid="selectTv" /> where t_type like "%" #{t_type} "%"
     </select>
+    <select id="selectByTypePage" resultType="Tv">
+        <include refid="selectTv" /> where t_type like "%" #{t_type} "%" limit #{page},14
+    </select>
+    <select id="selectByYear" resultType="Tv">
+        <include refid="selectTv" /> where t_update_time like "%" #{year} "%"
+    </select>
+    <select id="selectByYearPage" resultType="Tv">
+        <include refid="selectTv" /> where t_update_time like "%" #{year} "%" limit #{page},14
+    </select>
     <select id="selectByScore" resultType="Tv">
         <include refid="selectTv" /> order by t_heat desc
     </select>
     <select id="countById" resultType="java.lang.Integer">
         select count(t_id) from tv
+    </select>
+    <select id="selectLike" resultType="Tv">
+        <include refid="selectTv" /> where t_title like "%" #{content} "%"
     </select>
 </mapper>

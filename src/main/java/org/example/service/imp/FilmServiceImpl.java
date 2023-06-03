@@ -32,6 +32,21 @@ public class FilmServiceImpl implements FilmService {
     }
 
     @Override
+    public List<Film> findByTypePage(String type, Integer page) {
+        return dao.selectByTypePage(type, page);
+    }
+
+    @Override
+    public List<Film> findByYear(String year) {
+        return dao.selectByYear(year);
+    }
+
+    @Override
+    public List<Film> findByYearPage(String year, Integer page) {
+        return dao.selectByYearPage(year, page);
+    }
+
+    @Override
     public List<Film> findMaxScore() {
         return dao.selectByScore();
     }
@@ -53,5 +68,10 @@ public class FilmServiceImpl implements FilmService {
         }
 
         return number;
+    }
+
+    @Override
+    public List<Film> findLike(String content) {
+        return dao.selectLike(content);
     }
 }

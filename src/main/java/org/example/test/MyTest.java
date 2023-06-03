@@ -10,7 +10,11 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
+import java.util.Scanner;
 
 public class MyTest {
     @Test
@@ -91,7 +95,24 @@ public class MyTest {
                 }
             }
         }
+    }
+
+    @Test
+    public void testMultiList(){
+//        String config = "/conf/applicationContext.xml";
+//        ApplicationContext ctx = new ClassPathXmlApplicationContext(config);
+//        AnimeService service = (AnimeService) ctx.getBean("animeServiceImpl");
+//        Anime anime = service.findLike("苍兰诀");
+//        service.findByYear("2023");
+
+//        FilmService service = (FilmService) ctx.getBean("filmServiceImpl");
+//        service.findLike("苍兰诀");
 
 
+//        TvService service = (TvService) ctx.getBean("tvServiceImpl");
+//        service.findLike("苍兰诀");
+//        int a = 100;
+//        a++;
+//        System.out.println(a);
     }
 }

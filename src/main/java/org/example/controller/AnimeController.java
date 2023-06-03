@@ -19,6 +19,8 @@ public class AnimeController {
 
     private ModelAndView mv = new ModelAndView();
 
+    private Boolean Code = false;
+
     //点击动漫效果
     @RequestMapping("/check.com")
     public ModelAndView clickAnime(){
@@ -38,6 +40,7 @@ public class AnimeController {
         mv.addObject("dataPage",dataPage);
         mv.addObject("previousPage",previousPage);
         mv.addObject("nextPage",nextPage);
+        mv.addObject("Code",Code);
 
         //指定跳转视图
         mv.setViewName("Anime");
@@ -60,6 +63,7 @@ public class AnimeController {
         mv.addObject("dataPage",dataPage);
         mv.addObject("previousPage",previousPage);
         mv.addObject("nextPage",nextPage);
+        mv.addObject("Code",Code);
 
         //判断是否查询第一页数据
         if (beginNum == 1){
@@ -73,6 +77,72 @@ public class AnimeController {
         }
         //获取数据库的内容
         List<Anime> animeList = animeService.findAll(beginNum);;
+
+        //把数据添加到mv
+        mv.addObject("animeList",animeList);
+        //跳转到Anime视图
+        mv.setViewName("Anime");
+
+        return mv;
+    }
+
+    //根据用户点击的类型进行筛选
+    @RequestMapping("/filtrate.com")
+    public ModelAndView clickFiltrate(String type, Integer page){
+        //筛选后让其从第一页开始
+        int beginNum = page;
+
+        //通过类型筛选后获取内容总数
+        List<Anime> anime;
+        if (type.length() != 4){
+            anime = animeService.findByType(type);
+        } else {
+            anime = animeService.findByYear(type);
+        }
+
+        //获取页数
+        Integer totalQuantity = anime.size();
+        Integer number;
+        if (totalQuantity % 14 != 0){
+            number = totalQuantity / 14;
+            number++;
+        } else {
+            number = totalQuantity / 14;
+        }
+        Integer dataPage = number;
+
+        //获取上一页&下一页
+        Integer previousPage = beginNum - 1;
+        Integer nextPage = beginNum + 1;
+        //更改信息头
+        Code = true;
+
+        mv.addObject("beginNum", beginNum);
+        mv.addObject("dataPage", dataPage);
+        mv.addObject("previousPage", previousPage);
+        mv.addObject("nextPage", nextPage);
+        mv.addObject("Code",Code);
+        mv.addObject("type", type);
+
+
+        //判断是否查询第一页数据
+        if (beginNum == 1){
+            //数据库内容是从0开始算的,页数都改-=1
+            beginNum -= 1;
+        }else {
+            //数据库内容是从0开始算的，页数都改-=1
+            beginNum -= 1;
+            //前端每页最多展示14个内容
+            beginNum *= 14;
+        }
+
+        //查询有几页数据
+        List<Anime> animeList;
+        if (type.length() != 4){
+            animeList = animeService.findByTypePage(type, beginNum);
+        } else {
+            animeList = animeService.findByYearPage(type, beginNum);
+        }
 
         //把数据添加到mv
         mv.addObject("animeList",animeList);

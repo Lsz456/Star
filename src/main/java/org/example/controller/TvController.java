@@ -1,5 +1,6 @@
 package org.example.controller;
 
+import org.example.entity.Anime;
 import org.example.entity.Tv;
 import org.example.entity.Tv_Pending;
 import org.example.service.TvService;
@@ -18,6 +19,8 @@ public class TvController {
     private TvService tvService;
 
     private ModelAndView mv = new ModelAndView();
+
+    private Boolean Code = false;
 
     //点击电视剧效果
     @RequestMapping("/check.com")
@@ -38,6 +41,7 @@ public class TvController {
         mv.addObject("dataPage",dataPage);
         mv.addObject("previousPage",previousPage);
         mv.addObject("nextPage",nextPage);
+        mv.addObject("Code",Code);
 
         //指定跳转视图
         mv.setViewName("TV");
@@ -59,6 +63,7 @@ public class TvController {
         mv.addObject("dataPage",dataPage);
         mv.addObject("previousPage",previousPage);
         mv.addObject("nextPage",nextPage);
+        mv.addObject("Code",Code);
 
         //判断是否查询的是第一页数据
         if (beginNum == 1) {
@@ -77,6 +82,72 @@ public class TvController {
         //把数据添加到mv
         mv.addObject("tvList",tvList);
         //跳转到Tv视图
+        mv.setViewName("TV");
+
+        return mv;
+    }
+
+    //根据用户点击的类型进行筛选
+    @RequestMapping("/filtrate.com")
+    public ModelAndView clickFiltrate(String type, Integer page){
+        //筛选后让其从第一页开始
+        int beginNum = page;
+
+        //通过类型筛选后获取内容总数
+        List<Tv> tvs;
+        if (type.length() != 4){
+            tvs = tvService.findByType(type);
+        } else {
+            tvs = tvService.findByYear(type);
+        }
+
+        //获取页数
+        Integer totalQuantity = tvs.size();
+        Integer number;
+        if (totalQuantity % 14 != 0){
+            number = totalQuantity / 14;
+            number++;
+        } else {
+            number = totalQuantity / 14;
+        }
+        Integer dataPage = number;
+
+        //获取上一页&下一页
+        Integer previousPage = beginNum - 1;
+        Integer nextPage = beginNum + 1;
+        //更改信息头
+        Code = true;
+
+        mv.addObject("beginNum", beginNum);
+        mv.addObject("dataPage", dataPage);
+        mv.addObject("previousPage", previousPage);
+        mv.addObject("nextPage", nextPage);
+        mv.addObject("Code",Code);
+        mv.addObject("type", type);
+
+
+        //判断是否查询第一页数据
+        if (beginNum == 1){
+            //数据库内容是从0开始算的,页数都改-=1
+            beginNum -= 1;
+        }else {
+            //数据库内容是从0开始算的，页数都改-=1
+            beginNum -= 1;
+            //前端每页最多展示14个内容
+            beginNum *= 14;
+        }
+
+        //查询有几页数据
+        List<Tv> tvList;
+        if (type.length() != 4){
+            tvList = tvService.findByTypePage(type, beginNum);
+        } else {
+            tvList = tvService.findByYearPage(type, beginNum);
+        }
+
+        //把数据添加到mv
+        mv.addObject("tvList",tvList);
+        //跳转到Anime视图
         mv.setViewName("TV");
 
         return mv;

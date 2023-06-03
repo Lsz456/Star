@@ -67,6 +67,21 @@ public class TvServiceImpl implements TvService {
     }
 
     @Override
+    public List<Tv> findByTypePage(String type, Integer page) {
+        return dao.selectByTypePage(type, page);
+    }
+
+    @Override
+    public List<Tv> findByYear(String year) {
+        return dao.selectByYear(year);
+    }
+
+    @Override
+    public List<Tv> findByYearPage(String year, Integer page) {
+        return dao.selectByYearPage(year, page);
+    }
+
+    @Override
     public List<Tv> findByScore() {
         return dao.selectByScore();
     }
@@ -87,5 +102,10 @@ public class TvServiceImpl implements TvService {
         }
 
         return number;
+    }
+
+    @Override
+    public List<Tv> findLike(String content) {
+        return dao.selectLike(content);
     }
 }

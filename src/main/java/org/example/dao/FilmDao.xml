@@ -16,7 +16,16 @@
         <include refid="selectFilm" /> where f_id = #{f_id}
     </select>
     <select id="selectByType" resultType="Film">
-        <include refid="selectFilm" /> where f_type like % #{f_type} %
+        <include refid="selectFilm" /> where f_type like "%" #{f_type} "%"
+    </select>
+    <select id="selectByTypePage" resultType="Film">
+        <include refid="selectFilm" /> where f_type like "%" #{f_type} "%" limit #{page},14
+    </select>
+    <select id="selectByYear" resultType="Film">
+        <include refid="selectFilm" /> where f_year like "%" #{f_year} "%"
+    </select>
+    <select id="selectByYearPage" resultType="Film">
+        <include refid="selectFilm" /> where f_year like "%" #{f_year} "%" limit #{page},14
     </select>
     <select id="selectByScore" resultType="Film">
         <include refid="selectFilm" /> order by f_score desc
@@ -24,5 +33,7 @@
     <select id="countById" resultType="java.lang.Integer">
         select count(f_id) from film
     </select>
-
+    <select id="selectLike" resultType="Film">
+        <include refid="selectFilm" /> where f_title like "%" #{content} "%"
+    </select>
 </mapper>

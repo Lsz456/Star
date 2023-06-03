@@ -14,10 +14,18 @@ public interface TvDao {
 
     //根据类型查询电视剧信息
     List<Tv> selectByType(@Param("t_type") String type);
+    List<Tv> selectByTypePage(@Param("t_type") String type, @Param("page") Integer page);
+
+    //根据年份查询电视剧信息
+    List<Tv> selectByYear(@Param("year") String year);
+    List<Tv> selectByYearPage(@Param("year") String year, @Param("page") Integer page);
 
     //根据最高评分来查询电视剧信息
     List<Tv>  selectByScore();
 
     //获取有多少页数据
     Integer countById();
+
+    //根据内容模糊查询
+    List<Tv> selectLike(@Param("content") String content);
 }

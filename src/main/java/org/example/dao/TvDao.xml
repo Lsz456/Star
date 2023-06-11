@@ -5,34 +5,34 @@
 
 <mapper namespace="org.example.dao.TvDao">
     <sql id="selectTv">
-        select t_id,t_title,t_heat,t_total_number,t_type,t_update_time,t_star,t_image_url,t_description from tv
+        SELECT t_id,t_title,t_heat,t_total_number,t_type,t_update_time,t_star,t_image_url,t_description FROM tv
     </sql>
     <!--使用insert，update，delete，select标签写sql-->
     <select id="selectAll" resultType="Tv">
-        <include refid="selectTv" /> order by t_heat desc limit #{beginNum},14
+        <include refid="selectTv" /> ORDER BY t_heat DESC LIMIT #{beginNum},14
     </select>
     <select id="selectById" resultType="Tv">
-        <include refid="selectTv" /> where t_id = #{t_id}
+        <include refid="selectTv" /> WHERE t_id = #{t_id}
     </select>
     <select id="selectByType" resultType="Tv">
-        <include refid="selectTv" /> where t_type like "%" #{t_type} "%"
+        <include refid="selectTv" /> WHERE t_type LIKE "%" #{t_type} "%"
     </select>
     <select id="selectByTypePage" resultType="Tv">
-        <include refid="selectTv" /> where t_type like "%" #{t_type} "%" limit #{page},14
+        <include refid="selectTv" /> WHERE t_type LIKE "%" #{t_type} "%" LIMIT #{page},14
     </select>
     <select id="selectByYear" resultType="Tv">
-        <include refid="selectTv" /> where t_update_time like "%" #{year} "%"
+        <include refid="selectTv" /> WHERE t_update_time LIKE "%" #{year} "%"
     </select>
     <select id="selectByYearPage" resultType="Tv">
-        <include refid="selectTv" /> where t_update_time like "%" #{year} "%" limit #{page},14
+        <include refid="selectTv" /> WHERE t_update_time LIKE "%" #{year} "%" LIMIT #{page},14
     </select>
     <select id="selectByScore" resultType="Tv">
-        <include refid="selectTv" /> order by t_heat desc
+        <include refid="selectTv" /> ORDER BY t_heat DESC
     </select>
     <select id="countById" resultType="java.lang.Integer">
-        select count(t_id) from tv
+        SELECT count(t_id) FROM tv
     </select>
     <select id="selectLike" resultType="Tv">
-        <include refid="selectTv" /> where t_title like "%" #{content} "%"
+        <include refid="selectTv" /> WHERE t_title LIKE "%" #{content} "%"
     </select>
 </mapper>

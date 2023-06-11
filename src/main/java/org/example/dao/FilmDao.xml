@@ -6,34 +6,34 @@
 <mapper namespace="org.example.dao.FilmDao">
     <!--定义代码片段-->
     <sql id="selectFilm">
-        select f_id,f_title,f_type,f_area,f_score,f_year,f_star,f_director,f_update_time,f_Introduction,f_images,f_url from film
+        SELECT f_id,f_title,f_type,f_area,f_score,f_year,f_star,f_director,f_update_time,f_Introduction,f_images,f_url FROM film
     </sql>
 
     <select id="selectAll" resultType="Film">
-        <include refid="selectFilm" /> limit #{beginNum},14
+        <include refid="selectFilm" /> LIMIT #{beginNum},14
     </select>
     <select id="selectById" resultType="Film">
-        <include refid="selectFilm" /> where f_id = #{f_id}
+        <include refid="selectFilm" /> WHERE f_id = #{f_id}
     </select>
     <select id="selectByType" resultType="Film">
-        <include refid="selectFilm" /> where f_type like "%" #{f_type} "%"
+        <include refid="selectFilm" /> WHERE f_type LIKE "%" #{f_type} "%"
     </select>
     <select id="selectByTypePage" resultType="Film">
-        <include refid="selectFilm" /> where f_type like "%" #{f_type} "%" limit #{page},14
+        <include refid="selectFilm" /> WHERE f_type LIKE "%" #{f_type} "%" LIMIT #{page},14
     </select>
     <select id="selectByYear" resultType="Film">
-        <include refid="selectFilm" /> where f_year like "%" #{f_year} "%"
+        <include refid="selectFilm" /> WHERE f_year LIKE "%" #{f_year} "%"
     </select>
     <select id="selectByYearPage" resultType="Film">
-        <include refid="selectFilm" /> where f_year like "%" #{f_year} "%" limit #{page},14
+        <include refid="selectFilm" /> WHERE f_year LIKE "%" #{f_year} "%" LIMIT #{page},14
     </select>
     <select id="selectByScore" resultType="Film">
-        <include refid="selectFilm" /> order by f_score desc
+        <include refid="selectFilm" /> ORDER BY f_score DESC
     </select>
     <select id="countById" resultType="java.lang.Integer">
-        select count(f_id) from film
+        SELECT count(f_id) FROM film
     </select>
     <select id="selectLike" resultType="Film">
-        <include refid="selectFilm" /> where f_title like "%" #{content} "%"
+        <include refid="selectFilm" /> WHERE f_title LIKE "%" #{content} "%"
     </select>
 </mapper>

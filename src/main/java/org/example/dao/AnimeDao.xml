@@ -5,34 +5,34 @@
 
 <mapper namespace="org.example.dao.AnimeDao">
     <sql id="selectAnime">
-        select a_id,a_title,a_score,a_total_number,a_type,a_update_time,a_image_url,a_description from anime
+        SELECT a_id,a_title,a_score,a_total_number,a_type,a_update_time,a_image_url,a_description FROM anime
     </sql>
 
     <select id="selectAll" resultType="Anime">
-        <include refid="selectAnime" /> limit #{beginNum},14
+        <include refid="selectAnime" /> LIMIT #{beginNum},14
     </select>
     <select id="selectById" resultType="Anime">
-        <include refid="selectAnime" /> where a_id = #{a_id}
+        <include refid="selectAnime" /> WHERE a_id = #{a_id}
     </select>
     <select id="selectByType" resultType="Anime">
-        <include refid="selectAnime" /> where a_type like "%" #{a_type} "%"
+        <include refid="selectAnime" /> WHERE a_type LIKE "%" #{a_type} "%"
     </select>
     <select id="selectByTypePage" resultType="Anime">
-        <include refid="selectAnime" /> where a_type like "%" #{a_type} "%" limit #{number},14
+        <include refid="selectAnime" /> WHERE a_type LIKE "%" #{a_type} "%" limit #{number},14
     </select>
     <select id="selectByYear" resultType="Anime">
-        <include refid="selectAnime" /> where a_update_time like #{a_year} "%"
+        <include refid="selectAnime" /> WHERE a_update_time LIKE #{a_year} "%"
     </select>
     <select id="selectByYearPage" resultType="Anime">
-        <include refid="selectAnime" /> where a_update_time like #{a_year} "%" limit #{number},14
+        <include refid="selectAnime" /> WHERE a_update_time LIKE #{a_year} "%" limit #{number},14
     </select>
     <select id="selectByScore" resultType="Anime">
-        <include refid="selectAnime" /> order by a_score desc
+        <include refid="selectAnime" /> ORDER BY a_score DESC
     </select>
     <select id="countById" resultType="java.lang.Integer">
-        select count(a_id) from anime;
+        SELECT count(a_id) FROM anime;
     </select>
     <select id="selectLike" resultType="Anime">
-        <include refid="selectAnime" /> where a_title like "%" #{content} "%"
+        <include refid="selectAnime" /> WHERE a_title LIKE "%" #{content} "%"
     </select>
 </mapper>

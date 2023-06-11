@@ -5,16 +5,16 @@
 
 <mapper namespace="org.example.dao.Anime_PendingDao">
     <select id="selectByA_Id" resultType="Anime_Pending">
-        select a_p_id, a_p_title, a_p_numInt, a_p_movieurls from anime_pending where a_id = #{a_id} order by a_p_numInt asc
+        SELECT a_p_id, a_p_title, a_p_numInt, a_p_movieurls FROM anime_pending WHERE a_id = #{a_id} ORDER BY a_p_numInt ASC
     </select>
     <select id="countByA_PId" resultType="java.lang.Integer">
-        select count(a_p_numInt) from anime_pending where a_id = #{a_id}
+        SELECT count(a_p_numInt) FROM anime_pending WHERE a_id = #{a_id}
     </select>
     <select id="selectMovieUrls" resultType="Anime_Pending">
-        select a_p_numInt,a_p_movieurls from anime_pending where a_id = #{a_id} and a_p_numInt = #{a_p_numInt}
+        SELECT a_p_numInt,a_p_movieurls FROM anime_pending WHERE a_id = #{a_id} AND a_p_numInt = #{a_p_numInt}
     </select>
     <select id="MaxA_P_numInt" resultType="java.lang.Integer">
-        select Max(a_p_numInt) from anime_pending where a_id = #{a_id}
+        SELECT Max(a_p_numInt) FROM anime_pending WHERE a_id = #{a_id}
     </select>
 
 </mapper>
